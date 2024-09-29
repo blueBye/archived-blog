@@ -26,6 +26,8 @@ jobs:
 
     steps:
       - uses: pnpm/action-setup@v4
+        with:
+          version: 9.11.0
 
   # Build job
   build:
