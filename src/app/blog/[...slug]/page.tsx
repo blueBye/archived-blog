@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import fs from "node:fs";
 import path from "node:path";
 import { CodeBlock } from "@/components/mdx/codeBlock";
@@ -52,7 +53,7 @@ interface Params {
 }
 
 export default async function DocsPage({ params }: Params) {
-  // Read the MDX file from the content source direectory
+  // Read the MDX file from the content source directory
   const source = fs.readFileSync(
     path.join(process.cwd(), contentSource, params.slug.join("/")) + ".mdx",
     "utf8",
