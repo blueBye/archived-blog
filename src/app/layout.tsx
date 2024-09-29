@@ -3,15 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+const vazir = localFont({
+  src: "./fonts/Vazir-Regular.ttf",
+  variable: "--font-vazir",
   weight: "100 900",
 });
 
@@ -28,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
     <body
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${vazir.variable} antialiased`}
     >
       <ThemeProvider
         attribute="class"
