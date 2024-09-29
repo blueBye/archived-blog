@@ -81,7 +81,7 @@ export default async function DocsPage({ params }: Params) {
   });
 
   const pageTitle = frontmatter.title as string;
-  const pageAuthors = frontmatter.authors as string;
+  const pageAuthors = frontmatter.authors as string[];
   const pageDescription = frontmatter.description as string;
 
   // Render the page
@@ -92,7 +92,11 @@ export default async function DocsPage({ params }: Params) {
         <h1 className='text-4xl font-bold'>
           {pageTitle}
         </h1>
-        <h1>{pageAuthors}</h1>
+        <h1>
+          {pageAuthors.map((item: string, index: number) => (
+            <li key={index}>{item}</li>
+          ))}
+        </h1>
         ---
         <p>{pageDescription}</p>
         <div>
