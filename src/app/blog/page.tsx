@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable */
 import fs from "node:fs";
 import path from "node:path";
 import { compileMDX } from "next-mdx-remote/rsc";
@@ -57,9 +57,9 @@ async function extractFrontmatter(filePath: string) {
   });
 
   return {
-    title: frontmatter.title || "Untitled",
-    description: frontmatter.description || "No description",
-    previewImage: frontmatter.previewImage || "default image",
+    title: frontmatter.title as string,
+    description: frontmatter.description as string,
+    previewImage: frontmatter.previewImage as string,
     filePath,
   };
 }
@@ -85,8 +85,8 @@ export default async function DocsListPage() {
           {fileData.map((file, i) => (
             <BentoGridItem
               key={file.filePath}
-              title={<Link href={`/blog/${getRelativeFilePath(file.filePath, contentSource)}`}>{file.title || "بدون عنوان"}</Link>}
-              description={file.description || "بدون شرح"}
+              title={<Link href={`/blog/${getRelativeFilePath(file.filePath, contentSource)}`}>{file.title}</Link>}
+              description={file.description}
               header={<Image width={200} height={200} src={file.previewImage} alt={"header"} />}
               className={i === 3 || i === 6 ? "md:col-span-2" : ""}
             />
