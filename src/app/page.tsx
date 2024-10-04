@@ -1,18 +1,36 @@
-import {GlobeDemo} from "@/components/hero/globe";
+"use client"
+
+import { WavyBackground } from "@/components/ui/wavy-background";
+import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
+import { useRouter } from 'next/navigation'
 
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <GlobeDemo/>
+  const router = useRouter();
 
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <div className="bg-opacity-35 drop-shadow-lg rounded-xl bg-white/20 backdrop-blur-sm border border-gray-500 shadow-lg ring-1 ring-black/5 px-8 py-12 flex-col flex gap-16 content-center">
-          <p className="font-bold text-4xl text-center">
-            شاید بهترین وبلاگ؟
-          </p>
-        </div>
-      </main>
-    </div>
+  const placeholders = [
+    "میخوام یه پست بخونم",
+    "میخوام یه چیزی یادبگیرم",
+    "نمی‌دونم",
+    "باید یه کاری کنم ولی یادم نمیاد",
+    "کمی تا مقداری",
+  ];
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push(`/blog`);
+  };
+
+  return (
+    <WavyBackground className="max-w-4xl mx-auto pb-40">
+      <p className="text-2xl md:text-4xl lg:text-7xl font-bold text-center mb-12">
+        میدونی چرا اینجایی؟
+      </p>
+      <PlaceholdersAndVanishInput
+        placeholders={placeholders}
+        onSubmit={onSubmit}
+        onChange={() => {}}
+      />
+    </WavyBackground>
 );
 }

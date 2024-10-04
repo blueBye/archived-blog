@@ -7,6 +7,9 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+
 
 const contentSource = "/content/posts";
 
@@ -74,21 +77,23 @@ export default async function DocsListPage() {
 
   // Render the list of titles and descriptions
   return (
-    <div className='w-screen h-screen bg-gray-100 text-black flex flex-col items-center'>
-      <div className='max-w-3xl pt-8'>
+    <div className='w-full flex flex-col items-center py-16'>
+      <div className='max-w-3xl flex flex-col gap-8'>
         <h1 className='text-4xl font-bold'>Posts</h1>
-        <ul>
-          {fileData.map((file) => (
-            <li key={file.filePath} className="mb-4">
-              <Link href={`/blog/${getRelativeFilePath(file.filePath, contentSource)}`}>
-                <Image width={100} height={100} src={file.previewImage} alt={"header"} />
-                <h2 className='text-2xl font-semibold'>{file.title}</h2>
-                <p className='text-gray-600'>{file.description}</p>
-              </Link>
-            </li>
+
+        <BentoGrid className="max-w-4xl mx-auto">
+          {fileData.map((file, i) => (
+            <BentoGridItem
+              key={file.filePath}
+              title={<Link href={`/blog/${getRelativeFilePath(file.filePath, contentSource)}`}>{file.title || "بدون عنوان"}</Link>}
+              description={file.description || "بدون شرح"}
+              header={<Image width={200} height={200} src={file.previewImage} alt={"header"} />}
+              className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+            />
           ))}
-        </ul>
+        </BentoGrid>
       </div>
     </div>
   );
 }
+
