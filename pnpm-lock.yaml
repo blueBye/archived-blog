@@ -90,8 +90,8 @@ importers:
         specifier: ^0.169.0
         version: 0.169.0
       three-globe:
-        specifier: ^2.31.3
-        version: 2.31.3(three@0.169.0)
+        specifier: ^2.35.2
+        version: 2.35.2(three@0.169.0)
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -1454,6 +1454,7 @@ packages:
   eslint@8.57.1:
     resolution: {integrity: sha512-ypowyDxpVSYpkXr9WPv2PAZCtNip1Mv5KTW0SCurXv/9iOpcrH9PaqUElksqEB6pChqHGDRCFTyrZlGhnLNGiA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -2828,23 +2829,17 @@ packages:
     peerDependencies:
       three: '>=0.72.0'
 
-  three-fatline@0.7.0:
-    resolution: {integrity: sha512-IG3mA1gNO1ccT/O8ou9rBnYJQynCreCZn12IfuyFoWNN9+0DrrSENlXk46I7TQfNBKCgwsHpzucJ2qyPC3I/dQ==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      three: '>=0.154.0'
-
   three-geojson-geometry@1.3.3:
     resolution: {integrity: sha512-9SogZ9CYfzUYPo0oagGdTCU+Suyjqrbdya24xNbkwMwXr0atF5ozJKPUkdQWHwUy2WgV+i4I9cSjFDnGnanvbQ==}
     engines: {node: '>=12'}
     peerDependencies:
       three: '>=0.72.0'
 
-  three-globe@2.31.3:
-    resolution: {integrity: sha512-SxzI6k9KILp+f2Sa+GcMgQlyxhU1688OA436i4ojhvrd1M6RP0mjr2SM20yJek5ib/bkNA5o96XbNPAM3mqkBA==}
+  three-globe@2.35.2:
+    resolution: {integrity: sha512-dRRdwEdBA3JAxNurj7MgHYxLTgdlHNtmFEy4XdBwitkv2s4k9o4fPB8tqsc2Na9aPj6Y26RhQw7xrpBizIaMwA==}
     engines: {node: '>=12'}
     peerDependencies:
-      three: '>=0.125'
+      three: '>=0.154'
 
   three-mesh-bvh@0.7.8:
     resolution: {integrity: sha512-BGEZTOIC14U0XIRw3tO4jY7IjP7n7v24nv9JXS1CyeVRWOCkcOMhRnmENUjuV39gktAw4Ofhr0OvIAiTspQrrw==}
@@ -6451,17 +6446,13 @@ snapshots:
       earcut: 3.0.0
       three: 0.169.0
 
-  three-fatline@0.7.0(three@0.169.0):
-    dependencies:
-      three: 0.169.0
-
   three-geojson-geometry@1.3.3(three@0.169.0):
     dependencies:
       d3-geo: 3.1.1
       earcut: 3.0.0
       three: 0.169.0
 
-  three-globe@2.31.3(three@0.169.0):
+  three-globe@2.35.2(three@0.169.0):
     dependencies:
       '@tweenjs/tween.js': 25.0.0
       accessor-fn: 1.5.1
@@ -6478,7 +6469,6 @@ snapshots:
       kapsule: 1.14.5
       three: 0.169.0
       three-conic-polygon-geometry: 1.6.4(three@0.169.0)
-      three-fatline: 0.7.0(three@0.169.0)
       three-geojson-geometry: 1.3.3(three@0.169.0)
       tinycolor2: 1.6.0
       yaot: 1.1.3
